@@ -4,7 +4,7 @@
  * Supported parameters:
  * - header: true/false (default: true) - Show/hide top navigation bar
  * - sidebar: true/false (default: true) - Show/hide sidebar
- * - example: string (default: none) - Load specific example by key
+ * - example: string (default: none) - Example key; subdirs use slashes (e.g. topic/demo)
  * - view: code/split/output (default: split) - View mode
  * - tab: output/instructions (default: instructions) - Active output tab
  * - console: true/false (default: false) - Show console by default
@@ -83,6 +83,40 @@ function sanitizeWhitelistString(
   return null;
 }
 
+/**
+ * Resolve the `example` query value against known keys. Nested examples use the
+ * full path as the key (e.g. `mechanics/projectile` for `examples/mechanics/projectile.py`).
+ *
+ * In URLs you may use either a literal slash (`?example=mechanics/projectile`) or
+ * encode it (`?example=mechanics%2Fprojectile`); both match after parsing. If the
+ * value was double-encoded, one extra decode is attempted before whitelisting.
+ *
+ * When building links programmatically, use {@link encodeExampleForQuery}.
+ */
+export function parseExampleParam(
+  raw: string | null,
+  validExampleKeys: readonly string[],
+): string | null {
+  const direct = sanitizeWhitelistString(raw, validExampleKeys);
+  if (direct !== null) {
+    return direct;
+  }
+  if (raw === null || !raw.includes("%")) {
+    return null;
+  }
+  try {
+    const decoded = decodeURIComponent(raw);
+    return decoded === raw ? null : sanitizeWhitelistString(decoded, validExampleKeys);
+  } catch {
+    return null;
+  }
+}
+
+/** Encode an example key for a query string (safe for keys that contain `/`). */
+export function encodeExampleForQuery(key: string): string {
+  return encodeURIComponent(key);
+}
+
 function parseBoolean(value: string | null, defaultValue: boolean): boolean {
   if (value === null) {
     return defaultValue;
@@ -140,8 +174,7 @@ export function parseQueryParams(validExampleKeys: readonly string[] = []): Quer
     tab = "output";
   }
 
-  // Sanitize example parameter against whitelist of valid example keys
-  const exampleParam = sanitizeWhitelistString(params.get("example"), validExampleKeys);
+  const exampleParam = parseExampleParam(params.get("example"), validExampleKeys);
 
   return {
     header: parseBoolean(params.get("header"), DEFAULT_PARAMS.header),

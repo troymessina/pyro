@@ -22,7 +22,7 @@ All parameters are optional. When not specified, default values are used.
 |-----------|--------|---------|-------------|
 | `header` | `true` / `false` | `true` | Show or hide the top navigation bar |
 | `sidebar` | `true` / `false` | `true` | Show or hide the sidebar completely |
-| `example` | example key | none | Load a specific example (e.g., `bouncing-ball`) |
+| `example` | example key | none | Load an example: flat key (`bouncing-ball`) or nested path (`mechanics/demo` — encode as `mechanics%2Fdemo` when building URLs if needed; see below) |
 | `view` | `code` / `split` / `output` | `split` | Set the initial view mode |
 | `tab` | `output` / `instructions` | `instructions` | Set the active tab in the output panel |
 | `console` | `true` / `false` | `false` | Show the console panel by default |
@@ -96,9 +96,21 @@ Perfect for embedding a running simulation in a blog post:
 </iframe>
 ```
 
+### Nested examples (`example` in subfolders)
+
+If an example lives at `src/examples/mechanics/projectile.py`, its key is `mechanics/projectile` (path under `examples/`, no extension). You can link with a slash in the query string:
+
+`?example=mechanics/projectile`
+
+When assembling URLs in code, encode the value so `/` is not mistaken for a path separator by your tooling:
+
+`?example=${encodeURIComponent("mechanics/projectile")}` → `example=mechanics%2Fprojectile`
+
+Pyro accepts either form after parsing.
+
 ## Available Examples
 
-Examples are loaded from the `src/examples/` directory. Each example has a key derived from its filename (without the `.py` extension). Common examples include:
+Examples are loaded from the `src/examples/` directory (including subfolders). Each example has a key: relative path from `examples/` without `.py` (e.g. `basic-shapes` or `mechanics/demo`). Common top-level examples include:
 
 - `basic-shapes` - Introduction to VPython objects
 - `bouncing-ball` - Simple animation with collision

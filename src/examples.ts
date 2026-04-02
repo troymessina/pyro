@@ -1,8 +1,9 @@
 /// <reference types="vite/client" />
 /**
- * Examples are loaded from src/examples/: each pair of .py and .md files
- * with the same base name (e.g. basic-shapes.py + basic-shapes.md) defines
- * one example. The EXAMPLES map is built by parsing the directory at build time.
+ * Examples are loaded from src/examples/ (any depth). Each pair of .py and .md
+ * files with the same relative path without extension defines one example, e.g.
+ * basic-shapes.py + basic-shapes.md → key "basic-shapes", or
+ * mechanics/projectile.py + mechanics/projectile.md → key "mechanics/projectile".
  */
 
 const pyModules = import.meta.glob<Record<string, string>>("./examples/**/*.py", {
@@ -17,16 +18,26 @@ const mdModules = import.meta.glob<string>("./examples/**/*.md", {
   eager: true,
 });
 
-function exampleKeyFromPath(path: string, ext: ".py" | ".md"): string {
-  const base = path.split(/[/\\]/).pop() ?? path;
+/** Strip ./examples/ prefix and extension; keys are stable and unique across subdirs. */
+function exampleKeyFromPath(globPath: string, ext: ".py" | ".md"): string {
+  const normalized = globPath.replace(/\\/g, "/");
+  const withoutPrefix = normalized.replace(/^\.\/examples\//, "");
+  if (withoutPrefix.endsWith(ext)) {
+    return withoutPrefix.slice(0, -ext.length);
+  }
+  const base = withoutPrefix.split("/").pop() ?? withoutPrefix;
   return base.endsWith(ext) ? base.slice(0, -ext.length) : base;
 }
 
-function keyToDisplayName(key: string): string {
-  return key
+function segmentToTitle(segment: string): string {
+  return segment
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
+}
+
+function keyToDisplayName(key: string): string {
+  return key.split("/").map(segmentToTitle).join(" · ");
 }
 
 /** Map of example keys (filename without extension) to their Python source code. */
