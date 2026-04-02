@@ -13,4 +13,4 @@ This is an empty VPython code shell for users to build their own simulations.
 ## Tips
 
 - Look at other examples, and code your own program.
-- See examples in [troymessina.github.io/PhysicsArtOfModelinghttps://troymessina.github.io/PhysicsArtOfModeling/).
+- See examples in [troymessina.github.io/PhysicsArtOfModeling](https://troymessina.github.io/PhysicsArtOfModeling/).
