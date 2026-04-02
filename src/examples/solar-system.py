@@ -2,6 +2,7 @@ from vpython import *
 
 # Simple solar system simulation
 scene.background = color.black
+scene.forward = vec(0,-0.5,-1)
 
 # Sun
 sun = sphere(pos=vector(0, 0, 0), radius=0.5, color=color.yellow, emissive=True)
