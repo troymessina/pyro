@@ -1,4 +1,5 @@
-GlowScript 3.2 VPython
+from vpython import *
+
 scene.height=600
 scene.width=500
 #View in plane of orbit by uncommenting next line
