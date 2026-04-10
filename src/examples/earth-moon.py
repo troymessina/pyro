@@ -3,7 +3,7 @@ from vpython import *
 scene.height=600
 scene.width=500
 #View in plane of orbit by uncommenting next line
-#scene.camera.rotate(angle=90, axis=vec(1,1,1)) 
+#scene.camera.rotate(angle=90, axis=vec(1,1,1))
 
 f1=series()
 #constants in meters, kilograms, seconds
