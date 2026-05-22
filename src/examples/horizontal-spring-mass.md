@@ -18,7 +18,7 @@ A mass connected to a spring oscillates horizontally on a frictionless surface. 
 ## Key Parameters
 
 | Parameter | Value | Description |
-|-----------|-------|-------------|
+|:-----------|:-------:|-------------:|
 | Spring constant (ks) | 5 N/m | Stiffness |
 | Mass (m) | 0.05 kg | Oscillating mass |
 | Natural length (L₀) | 1 m | Unstretched spring length |
