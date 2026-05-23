@@ -8,8 +8,8 @@ scene = canvas(
 )
 # ── Starting Parameters ─────────────────────────────────────────────────────────
 x0 = 1.0  # relaxed length of spring
-A = 0.25
-ks = 5  # spring stiffness
+A = 0.25 #amplitude of motion
+k = 5  # spring stiffness or spring constant
 m = 0.05  # mass of the block
 
 attachpoint = vector(-x0, 0, 0)  ## where spring is attached to wall
@@ -54,9 +54,9 @@ scene.pause() # wait for a click
 a_now = vec(0,0,0)
 while True:#t<5:
     rate(2000)
-    block.acc = -ks*block.pos/block.m
+    block.acc = -k*block.pos/block.m
     block.pos = block.pos + block.vel*deltat + 0.5*block.acc*deltat**2
     spring.axis = block.pos-attachpoint
-    acc_next = -ks*block.pos/block.m
+    acc_next = -k*block.pos/block.m
     block.vel = block.vel + (block.acc+acc_next)/2*deltat
     t = t + deltat
