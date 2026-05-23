@@ -6,7 +6,7 @@ A mass connected to a spring oscillates horizontally on a frictionless surface. 
 
 - A fixed wall with a helical spring attached
 - A blue mass at the right end of the spring
-- The mass oscillates left and right upon clicking the simulation.
+- The mass oscillates left and right upon clicking the simulation
 - The spring stretches and compresses in sync with the motion
 - The maximum amplitude and equilibrium positions are labeled
 
@@ -19,7 +19,7 @@ A mass connected to a spring oscillates horizontally on a frictionless surface. 
 
 | Parameter | Value | Description |
 |:-----------|:-------:|-------------:|
-| Spring constant (ks) | 5 N/m | Stiffness |
+| Spring constant (k) | 5 N/m | Stiffness |
 | Mass (m) | 0.05 kg | Oscillating mass |
 | Natural length (L₀) | 1 m | Unstretched spring length |
 | Stretch Amplitude (A) | 0.25 m | Extension of spring from equilibrium |
@@ -27,5 +27,5 @@ A mass connected to a spring oscillates horizontally on a frictionless surface. 
 ## Tips
 
 - Drag the view to rotate and see the oscillation from different angles
-- Change `ks`, `m`, or `A` to observe changes in behavior
-- Try increasing `damping` for faster decay, or `k` for faster oscillation
+- Change `k`, `m`, or `A` to observe changes in behavior
+- Try decreasing `m` or increasing `k` for faster oscillation
