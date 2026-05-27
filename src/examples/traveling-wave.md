@@ -10,16 +10,18 @@ A beaded string with a traveling wave.
 
 ## Physics
 
-- **Traveling Wavee** \( y(x, t) = A \sin(kx-\omega t) \)
+- **Traveling Wave** \( y(x, t) = A \sin(kx-\omega t) \)
+- **Wavenumber** \(k = 2\pi/\lambda\)
+- **Angular Frequency** \(\omega=2\pi/T=2\pi f\)
 
 ## Key Parameters
 
 | Parameter | Value | Description |
 |:-----------|:-------:|-------------:|
-| Amplitude (A) | \( 1 m \) | Height of wave |
-| Wavelength (\(\lambda\)) | \( 4 m \) | Length of wave repetition |
-| Wavenumber (\( k=2\pi / \lambda \)) | \( \pi/2 m^{-1}\) | Inverse wavelength or energy |
-| Angular frequency (\(\omega\)) | \( 3 rad/s\) | Repetition rate of wave |
+| Amplitude (A) | \( 1~{\rm m} \) | Height of wave |
+| Wavelength (\(\lambda\)) | \( 4~{\rm m} \) | Length of wave repetition |
+| Wavenumber (k) | \( \pi/2~{\rm m^{-1}}\) | Inverse wavelength or energy |
+| Angular frequency (\(\omega\)) | \( 3~{\rm rad/s}\) | Repetition rate of wave |
 
 ## Tips
 
