@@ -56,7 +56,10 @@ x_start = -x_max
 for i in range(num_spheres):
     x_pos = x_start + (i * (2 * x_max / num_spheres))
     # Instantiate spheres at the baseline height
-    s = sphere(pos=vec(x_pos, 0, 0), radius=0.12, color=color.cyan)
+    if i==19:
+      s = sphere(pos=vec(x_pos, 0, 0), radius=0.12, color=color.magenta)
+    else:
+      s = sphere(pos=vec(x_pos, 0, 0), radius=0.12, color=color.cyan)
     spheres.append(s)
     x_vals.append(x_pos)
 
