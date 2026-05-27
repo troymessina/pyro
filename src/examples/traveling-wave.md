@@ -26,4 +26,4 @@ A beaded string with a traveling wave.
 ## Tips
 
 - Drag the view to rotate and see the wave from different angles
-- Change `A`, `wavelength`, `k` or `omega` to observe changes in behavior
+- Change `A`, `wavelength`, or `omega` to observe changes in behavior
