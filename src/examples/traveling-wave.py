@@ -2,7 +2,7 @@ from vpython import *
 
 # 1. Canvas Setup
 scene = canvas(title="3D Traveling Wave with Reference Grid",
-               width=800, height=600, center=vec(0, 0, 0),
+               width=400, height=400, center=vec(0, 0, 0),
                background=color.black)
 scene.camera.pos = vec(0, 0, 10)
 scene.camera.axis = vec(0, 0, -10)
