@@ -7,6 +7,8 @@ A beaded string with a traveling wave.
 - A fixed grid to show the amplitude and horizontal position of the wave
 - A beaded string rising up and down with peaks and troughs traveling to the right
 - One bead is a different color to make it clear that the medium of the wave does not travel with the wave
+- The wavelength \(\lambda\) is shown with a double-arrow and label
+- A run/pause button allows users to view the wave snapshots
 
 ## Physics
 
