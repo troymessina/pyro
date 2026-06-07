@@ -22,7 +22,7 @@ A beaded string with a traveling wave.
 |:-----------|:-------:|-------------:|
 | Amplitude (A) | \( 1~{\rm m} \) | Height of wave |
 | Wavelength (\(\lambda\)) | \( 4~{\rm m} \) | Length of wave repetition |
-| Wavenumber (k) | \( \pi/2~{\rm m^{-1}}\) | Inverse wavelength or energy |
+| Wavenumber (k) | \( 2\pi/\lambda~{\rm m^{-1}}\) | Inverse wavelength or energy |
 | Angular frequency (\(\omega\)) | \( 3~{\rm rad/s}\) | Repetition rate of wave |
 
 ## Tips
