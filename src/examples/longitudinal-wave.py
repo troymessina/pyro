@@ -1,7 +1,6 @@
 from vpython import *
 
 # --- Simulation Parameters ---
-#num_particles = 40
 particle_radius = 0.3
 amplitude = 0.5
 wavelength = 8.0
@@ -28,6 +27,14 @@ for i in range(cols):
       y_initials.append(y_pos)
 
     x_initials.append(x_pos)
+
+# Draw wavelength indicator
+center = vector(0, rows*0.6, 0)
+direction = vector(wavelength/2, 0, 0) # Right direction
+# Create the two halves
+arrow(pos=center, axis=direction, color=color.red)
+arrow(pos=center, axis=-direction, color=color.red)
+label(pos=vec(0, rows*0.75, 0), text='wavelength', box=False, height=16, border=4, font='sans')
 
 # --- Animation Loop ---
 t = 0
