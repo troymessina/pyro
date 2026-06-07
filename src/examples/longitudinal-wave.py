@@ -5,7 +5,7 @@ particle_radius = 0.3
 amplitude = 0.5
 wavelength = 8.0
 frequency = 1.0
-C = 5.0 # Wave speed
+C = wavelength * frequency # Wave speed
 
 # Create the canvas
 scene = canvas(title="Longitudinal Wave Simulation", width=800, height=400)
@@ -20,7 +20,7 @@ y_initials = []
 
 for i in range(cols):
     # Space out particles equally along the x-axis
-    x_pos = -cols/2 + i#-12 + (i * 24 / cols)
+    x_pos = -cols/2 + i
     for j in range(rows):
       y_pos = -5 + j
       particles[j][i] = sphere(pos=vector(x_pos, y_pos, 0), radius=particle_radius, color=color.cyan)
