@@ -4,8 +4,8 @@ A medium of particles with a traveling longitudinal wave.
 
 ## What You'll See
 
-- A gridded medium of particles shifting left and right with compression and rarefaction demonstrated by particle color
-- The particles comprising the medium of the wave does not travel with the wave
+- A gridded medium of particles shifting left and right with compression and rarefaction demonstrated by particle color and position
+- The particles comprising the medium of the wave do not travel with the wave
 - The wavelength \(\lambda\) is shown with a double-arrow and label
 
 ## Physics
