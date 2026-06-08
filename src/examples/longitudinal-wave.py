@@ -22,19 +22,19 @@ for i in range(cols):
     # Space out particles equally along the x-axis
     x_pos = -cols/2 + i
     for j in range(rows):
-      y_pos = -5 + j
+      y_pos = j
       particles[j][i] = sphere(pos=vector(x_pos, y_pos, 0), radius=particle_radius, color=color.cyan)
       y_initials.append(y_pos)
 
     x_initials.append(x_pos)
 
 # Draw wavelength indicator
-center = vector(0, rows*0.6, 0)
+center = vector(0, rows*1.1, 0)
 direction = vector(wavelength/2, 0, 0) # Right direction
 # Create the two halves
 arrow(pos=center, axis=direction, color=color.red)
 arrow(pos=center, axis=-direction, color=color.red)
-label(pos=vec(0, rows*0.75, 0), text='wavelength', box=False, height=16, border=4, font='sans')
+label(pos=vec(0, rows*1.25, 0), text='wavelength', box=False, height=16, border=4, font='sans')
 
 # --- Animation Loop ---
 t = 0
